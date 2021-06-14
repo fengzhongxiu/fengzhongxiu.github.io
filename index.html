@@ -151,19 +151,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2-二分查找法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2.二分查找法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/13/2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/">2.二分查找法</a>
+      <a class="article-title" href="/2021/06/13/2.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/">2.二分查找法</a>
     </h1>
   
 
         
-        <a href="/2021/06/13/2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/" class="archive-article-date">
+        <a href="/2021/06/13/2.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/" class="archive-article-date">
   	<time datetime="2021-06-13T07:33:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-13</time>
 </a>
         
@@ -172,16 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>二分查找也叫折半查找，查询某个元素是否在序列中。</p>
-<p>最简单的二分查找对序列有两个要求：</p>
-<ol>
-<li>序列需要是有序的</li>
-<li>序列需要顺序存储</li>
-</ol>
-<p>这两个要求方便可以简单的通过下标来完成取数，第一个要求是二分查找的必要条件，第二个要求如果有其他方法比如通过映射等方式完成地址转换也可以不满足。</p>
-<h2 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a>程序实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span>[] order)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> r = order.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">		<span class="keyword">int</span> middle = (l + r) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(key &lt; order[middle])&#123;</span><br><span class="line">			r = middle - <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &gt; order[middle])&#123;</span><br><span class="line">			l = middle + <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> middle;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>怎么样实现传入的序列有序？</p>
-
+        
       
 
       
@@ -204,7 +195,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/13/2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/13/2.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -255,15 +246,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。云原生的代表技术包括容器、服务网格、微服务、不可变基础设施和声明式API。这些技术能够构建容错性好、易于管理和便于观察的松耦合系统。结合可靠的自动化手段，云原生技术使工程能够轻松地对系统作出频繁和可预测的重大变革。云原生基金会（CNCF） </p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>云原生应用：更敏捷高质量的应用交付，更简单和高效的应用管理</p>
-<p>业务：更快速的业务需求响应。更优质更创新的用户体验</p>
-<p>企业：更具竞争力 </p>
-<h1 id="代表技术"><a href="#代表技术" class="headerlink" title="代表技术"></a>代表技术</h1><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p>解决的主要是应用在部署运行管理以及交付中所遇到的问题 </p>
-<p>容器是当前热门的应用交付手段，将会是未来应用交付的标准 </p>
-<p><img src="C:\TEM\1623465239610.png" alt="1623465239610"></p>
-<p>容器镜像：可以提前把应用和它所需要的配置还有依赖的组件，以及部署的时候所需要的的动作提前布置成模板，然后在每一台机器上部署一个叫做容器引擎的软件，容器引擎通过读取镜像生成容器实例来运行我们的应用程序。容器镜像仓库：通过将容器发送到容器镜像仓库中，需要的用户可以通过仓库下载容器镜像，完成镜像分发到集群中</p>
-<p>容器编排：解决容器管理问题，集中管理 </p>
-<h2 id="服务网格"><a href="#服务网格" class="headerlink" title="服务网格"></a>服务网格</h2><h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><h2 id="不可变基础设施"><a href="#不可变基础设施" class="headerlink" title="不可变基础设施"></a>不可变基础设施</h2><h2 id="声明式API"><a href="#声明式API" class="headerlink" title="声明式API"></a>声明式API</h2>
+        
       
 
       
@@ -337,15 +320,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="算法说明"><a href="#算法说明" class="headerlink" title="算法说明"></a>算法说明</h3><p>辗转相除法用来求两个非负整数的最大公约数</p>
-<h4 id="自然语言描述"><a href="#自然语言描述" class="headerlink" title="自然语言描述"></a>自然语言描述</h4><p>计算两个非负整数p和q的最大公约数：若q是0，则最大公约数为p。否则，将p除以q得到余数r，p和q的最大公约数即为q和r的最大公约数。</p>
-<h4 id="java算法描述"><a href="#java算法描述" class="headerlink" title="java算法描述"></a>java算法描述</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">greatestCommonDivisor</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> p;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> r = p % q;</span><br><span class="line">	<span class="keyword">return</span> greatestCommonDivisor(q, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="延伸-求最小公倍数"><a href="#延伸-求最小公倍数" class="headerlink" title="延伸 求最小公倍数"></a>延伸 求最小公倍数</h3><h4 id="自然语言描述-1"><a href="#自然语言描述-1" class="headerlink" title="自然语言描述"></a>自然语言描述</h4><p>计算两个非负整数p和q的最小公倍数：p和q的积除以最大公约数即为最小公倍数</p>
-<h4 id="java算法描述-1"><a href="#java算法描述-1" class="headerlink" title="java算法描述"></a>java算法描述</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">leastCommonMultiple</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> gcd = greatestCommonDivisor(p, q);</span><br><span class="line">	<span class="keyword">return</span> p * q / gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
       
 
       
@@ -369,81 +344,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/06/10/1.%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/03/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-03T02:31:30.097Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/03/hello-world/">展开全文 >></a>
         </p>
       
 
