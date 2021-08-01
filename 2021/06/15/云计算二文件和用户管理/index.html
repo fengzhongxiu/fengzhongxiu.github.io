@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
-  <title>云计算一走进linux | Fengzhongxiu的博客</title>
+  <title>云计算二文件和用户管理 | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+  <meta name="description" content="linux下的一切皆文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云计算一走进linux">
-<meta property="og:url" content="https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/index.html">
+<meta property="og:title" content="云计算二文件和用户管理">
+<meta property="og:url" content="https://fengzhongxiu.github.io/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+<meta property="og:description" content="linux下的一切皆文件">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-14T15:25:37.000Z">
-<meta property="article:modified_time" content="2021-06-15T15:47:18.000Z">
+<meta property="article:published_time" content="2021-06-15T15:25:37.000Z">
+<meta property="article:modified_time" content="2021-06-23T08:20:18.000Z">
 <meta property="article:author" content="Feng Zhongxiu">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -151,58 +151,295 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-云计算一走进linux" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-云计算二文件和用户管理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      云计算一走进linux
+      云计算二文件和用户管理
     </h1>
   
 
         
-        <a href="/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" class="archive-article-date">
-  	<time datetime="2021-06-14T15:25:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-14</time>
+        <a href="/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-06-15T15:25:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="开源软件和linux起源"><a href="#开源软件和linux起源" class="headerlink" title="开源软件和linux起源"></a>开源软件和linux起源</h1><ol>
-<li><p>Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼</p>
-</li>
-<li><p>Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核<span id="more"></span> </p>
-</li>
-</ol>
-<h1 id="linux发行版"><a href="#linux发行版" class="headerlink" title="linux发行版"></a>linux发行版</h1><p>RHEL商业版 红帽linux</p>
-<p>CentOS社区版 免费</p>
-<p>Ubuntu乌班图 以桌面为主</p>
-<p>Debian</p>
-<p>因CentOS具有商业水准，并且免费，国内主要使用CentOS</p>
-<h1 id="RHCE红帽认证工程师"><a href="#RHCE红帽认证工程师" class="headerlink" title="RHCE红帽认证工程师"></a>RHCE红帽认证工程师</h1><p>分为三个等级：</p>
-<p>RHCSA：红帽认证系统管理员</p>
-<p>RHCE：红帽认证工程师</p>
-<p>RHCA：红帽认证架构师</p>
-<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><p>真正的服务器一般分为3种：</p>
-<ol>
-<li>塔式服务器</li>
-<li>机架式服务器</li>
-<li>刀片式服务器</li>
-</ol>
-<p>机架式服务器常用于服务器领域</p>
-<h1 id="如何得到一个云服务器"><a href="#如何得到一个云服务器" class="headerlink" title="如何得到一个云服务器"></a>如何得到一个云服务器</h1><ol>
-<li>有一台服务器（中大型计算机）</li>
-<li>安装服务器系统（linux操作系统）</li>
-</ol>
-<h1 id="云计算核心目的"><a href="#云计算核心目的" class="headerlink" title="云计算核心目的"></a>云计算核心目的</h1><p>保证系统平稳运行</p>
-<h1 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h1><p>安装VMware Workstation Pro、CentOS 7、FinalSehll shell连接软件</p>
-<p>以上软件问度娘</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>1.虚拟机安装后怎么删除</p>
-<p>在VMWARE中，右键虚拟机名称，选择管理，选择从磁盘删除</p>
+        <p>linux下的一切皆文件</p>
+<span id="more"></span>
 
+<h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>linux：以单根的方式组织文件/。</p>
+<p>根目录下几个重要的文件夹：</p>
+<ol>
+<li>bin：普通用户可以使用的命令的存放目录</li>
+<li>boot：引导程序。内核等存放的目录</li>
+<li>dev：设备文件目录，包括硬盘，键盘，鼠标，网卡，终端等</li>
+<li>etc：配置文件，系统和程序一般都可以通过修改相应的配置文件来进行配置</li>
+<li>home：普通用户家目录</li>
+<li>root：系统管理员的主目录，不存放在/home下，而是直接放在/root下</li>
+<li>run：临时运行的文件</li>
+<li>sbin：超级用户可以使用的命令的存放目录</li>
+<li>tmp：临时文件存放目录</li>
+<li>usr：应用程序文件夹，安装程序的时候，默认就是安装在此文件内部的某个子文件内</li>
+<li>var：内容经常变化的目录，此目录下的文件的大小可能会改变，如缓存文件，日志文件等</li>
+</ol>
+<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><p>ls：list 列出文件内容</p>
+<p>ls -l列出文件详细信息</p>
+<ul>
+<li>- ：普通文件（文本文件，二进制文件，压缩文件……）</li>
+<li>d：目录文件（蓝色）</li>
+<li>b：设备文件（块设备）存储设备硬盘，U盘  /dev/sda   /dev/sda1</li>
+<li>c：设备文件（字符设备）打印机，终端 /dev/tty1</li>
+<li>l：链接文件（淡蓝色）</li>
+<li>s：套接字文件</li>
+<li>p：管道文件</li>
+</ul>
+<h2 id="文件管理基础命令"><a href="#文件管理基础命令" class="headerlink" title="文件管理基础命令"></a>文件管理基础命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>选项</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cd</td>
+<td></td>
+<td>路径</td>
+<td>进入某个目录</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td></td>
+<td></td>
+<td>显示当前路径</td>
+</tr>
+<tr>
+<td>clear</td>
+<td></td>
+<td></td>
+<td>清屏 CTRL+L</td>
+</tr>
+<tr>
+<td>touch</td>
+<td></td>
+<td>路径和名称</td>
+<td>创建文件</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td></td>
+<td>路径</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td></td>
+<td>-p（parent）</td>
+<td>路径</td>
+<td>递归的创建目录</td>
+</tr>
+<tr>
+<td></td>
+<td>-v</td>
+<td>路径</td>
+<td>创建目录并显示</td>
+</tr>
+<tr>
+<td>cp</td>
+<td></td>
+<td>1.当前文件地址 2.目标地址</td>
+<td>复制文件</td>
+</tr>
+<tr>
+<td></td>
+<td>-r（request）</td>
+<td>1.当前文件地址 2.目标地址</td>
+<td>复制文件夹</td>
+</tr>
+<tr>
+<td>mv</td>
+<td></td>
+<td>1.当前文件地址 2.目标地址</td>
+<td>移动文件</td>
+</tr>
+<tr>
+<td>rm</td>
+<td></td>
+<td>路径</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td></td>
+<td>-rf</td>
+<td>路径</td>
+<td>强制删除不询问</td>
+</tr>
+<tr>
+<td>cat</td>
+<td></td>
+<td>路径</td>
+<td>查看文件（全部）</td>
+</tr>
+<tr>
+<td>more</td>
+<td></td>
+<td>路径</td>
+<td>查看文件（翻页）</td>
+</tr>
+<tr>
+<td>head</td>
+<td></td>
+<td>路径</td>
+<td>查看文件（头部）</td>
+</tr>
+<tr>
+<td>tail</td>
+<td></td>
+<td>路径</td>
+<td>查看文件（尾部）</td>
+</tr>
+<tr>
+<td>grep</td>
+<td></td>
+<td>路径</td>
+<td>查看文件（过滤关键字）</td>
+</tr>
+<tr>
+<td>gedit</td>
+<td></td>
+<td>路径</td>
+<td>图形模式进行文件编辑器（需要图形页面）</td>
+</tr>
+<tr>
+<td>vim</td>
+<td></td>
+<td>路径</td>
+<td>命令行模式进行文件编辑</td>
+</tr>
+</tbody></table>
+<p>注：</p>
+<ol>
+<li>mv(move) 为什么不用长命令？因为在以前计算机是一个非常昂贵的资源，按照字节收费，所以都是采用简写，现在很多命令越来越长，因为寄存器等资源没有贵，并且长命令方便理解</li>
+<li>cp（mv）命令如果目标地址不是文件夹就会修改文件名称，所以这两个命令可以复制（移动）文件并改名，如果文件已存在，就会询问是否覆盖</li>
+<li>rm 参数后面可以跟无数个路径，会将所有的路径都删除，删除文件为了防止出错可以在删除的时候可以先将文件改个名称，这样系统同样找不到这个文件</li>
+<li>more 查看文件的时候空格翻页，回车换行</li>
+<li>vim有三个模式：命令模式、输入模式、末行模式。在每次运行Vim编辑器时，默认进入命令模式，此时需要先切换到输入模式后再进行文档编写工作，而每次在编写完文档后需要先返回命令模式，然后再进入末行模式，执行文档的保存或退出操作。在Vim中，无法直接从输入模式切换到末行模式。 </li>
+<li>vim可视化模式，可以进行选取</li>
+<li><a target="_blank" rel="noopener" href="https://www.linuxprobe.com/basic-learning-04.html">https://www.linuxprobe.com/basic-learning-04.html</a> linux学习可以看具体命令。感谢刘遄老师 和《Linux就该这么学》 </li>
+<li>linux中有可视化模式，用于代替光标进行选取，通过在命令模式中按v进入，通过结合其他命令来使用</li>
+<li>光标定位hjkl上下左右   0  $行首行尾 gg G页首页尾</li>
+<li>-f(first) 强制执行   -n 不询问</li>
+<li>rm -rf  path/*  不会删除path下面的隐藏文件</li>
+</ol>
+<h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><h2 id="用户-组基本概念"><a href="#用户-组基本概念" class="headerlink" title="用户/组基本概念"></a>用户/组基本概念</h2><p>用于控制用户信息</p>
+<p>用户基本信息文件   /etc/passwd</p>
+<p>用户密码信息文件  /etc/shadow</p>
+<p>组文件  /etc/group</p>
+<h3 id="用户基本信息"><a href="#用户基本信息" class="headerlink" title="用户基本信息"></a>用户基本信息</h3><p>root：x:0:0:root:/root:/bin/bash</p>
+<p>用户名：x：uid：gid：描述：HOME：shell</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户名</td>
+<td></td>
+<td>系统登录的名字</td>
+</tr>
+<tr>
+<td>x</td>
+<td>具体内容不再这里</td>
+<td>密码占位符</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>0 特权用户<br/>1~999 系统用户<br />1000+ 普通用户</td>
+<td>用户编码</td>
+</tr>
+<tr>
+<td>gid</td>
+<td></td>
+<td>组编码</td>
+</tr>
+<tr>
+<td>描述</td>
+<td></td>
+<td>对用户的描述</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td></td>
+<td>用户登录系统时所在的目录</td>
+</tr>
+<tr>
+<td>shell</td>
+<td></td>
+<td>用户所用的命令解释器版本</td>
+</tr>
+</tbody></table>
+<h3 id="用户密码信息"><a href="#用户密码信息" class="headerlink" title="用户密码信息"></a>用户密码信息</h3><p>root:$6$B5GWAuUh/u1p/wd3$L1Cgje1B/kyn7sOwO72W/DS7WneQBRFWcmdHNPaHJlDHroao1Pci4xReDS2ksPaRjeczc1BddN7E7aId1kkrt/::0:99999:7:::</p>
+<p>共8列</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户名</td>
+<td></td>
+<td>系统登录的名称</td>
+</tr>
+<tr>
+<td>口令</td>
+<td>空：用户没有口令，登录时不需要口令<br/>星号：账号被锁定<br />双叹号：密码已过期<br />$6$开头：用SHA-512加密<br />$1$：用MD5加密<br />$2$：用Blowfish加密<br />$5$：用SHA-256加密</td>
+<td>加密后的密码</td>
+</tr>
+<tr>
+<td>最后一次修改时间</td>
+<td></td>
+<td>到1970年1月1日的天数（类时间戳）</td>
+</tr>
+<tr>
+<td>最小时间间隔</td>
+<td></td>
+<td>两次修改口令之间所需的最小的天数</td>
+</tr>
+<tr>
+<td>最大时间间隔</td>
+<td></td>
+<td>口令保持有效的最大天数</td>
+</tr>
+<tr>
+<td>警告时间</td>
+<td></td>
+<td>系统开始警告用户到密码失效的时间</td>
+</tr>
+<tr>
+<td>不活动时间</td>
+<td></td>
+<td>没有活动能保留的最大天数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="用户-组管理"><a href="#用户-组管理" class="headerlink" title="用户/组管理"></a>用户/组管理</h2><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2>
       
 
       
@@ -302,7 +539,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +553,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/01/%E7%AE%97%E6%B3%95%E4%BA%8C%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          云计算二文件和用户管理
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2021/06/12/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">云原生概念</div>
+    <a href="/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">云计算一走进linux</div>
       <i class="icon-circle-right"></i>
     </a>
   
