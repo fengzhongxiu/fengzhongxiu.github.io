@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
-  <title>云计算一走进linux | Fengzhongxiu的博客</title>
+  <title>docker老中医 | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+  <meta name="description" content="描述解决docker使用过程中的疑难杂症 杂症列表没有权限挂载宿主机已存在目录后，在容器内对其进行操作，报“Permission denied”。 可通过两种方式解决： 1&gt; 关闭selinux。 临时关闭：# setenforce 0 永久关闭：修改&#x2F;etc&#x2F;sysconfig&#x2F;selinux文件，将SELINUX的值设置为disabled，重启后生效 2&gt; 以特权方式启动容器  指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云计算一走进linux">
-<meta property="og:url" content="https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/index.html">
+<meta property="og:title" content="docker老中医">
+<meta property="og:url" content="https://fengzhongxiu.github.io/2021/07/06/docker%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+<meta property="og:description" content="描述解决docker使用过程中的疑难杂症 杂症列表没有权限挂载宿主机已存在目录后，在容器内对其进行操作，报“Permission denied”。 可通过两种方式解决： 1&gt; 关闭selinux。 临时关闭：# setenforce 0 永久关闭：修改&#x2F;etc&#x2F;sysconfig&#x2F;selinux文件，将SELINUX的值设置为disabled，重启后生效 2&gt; 以特权方式启动容器  指">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-14T15:25:37.000Z">
-<meta property="article:modified_time" content="2021-06-15T15:47:18.000Z">
+<meta property="article:published_time" content="2021-07-06T04:27:58.000Z">
+<meta property="article:modified_time" content="2021-07-06T06:53:18.594Z">
 <meta property="article:author" content="Feng Zhongxiu">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fengzhongxiu的博客" type="application/atom+xml">
@@ -151,57 +151,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-云计算一走进linux" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker疑难问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      云计算一走进linux
+      docker老中医
     </h1>
   
 
         
-        <a href="/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" class="archive-article-date">
-  	<time datetime="2021-06-14T15:25:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-14</time>
+        <a href="/2021/07/06/docker%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-07-06T04:27:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="开源软件和linux起源"><a href="#开源软件和linux起源" class="headerlink" title="开源软件和linux起源"></a>开源软件和linux起源</h1><ol>
-<li><p>Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼</p>
-</li>
-<li><p>Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核<span id="more"></span> </p>
-</li>
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>解决docker使用过程中的疑难杂症</p>
+<h2 id="杂症列表"><a href="#杂症列表" class="headerlink" title="杂症列表"></a>杂症列表</h2><h3 id="没有权限"><a href="#没有权限" class="headerlink" title="没有权限"></a>没有权限</h3><p>挂载宿主机已存在目录后，在容器内对其进行操作，报“Permission denied”。</p>
+<p>可通过两种方式解决：</p>
+<p>1&gt; 关闭selinux。</p>
+<p>临时关闭：# setenforce 0</p>
+<p>永久关闭：修改/etc/sysconfig/selinux文件，将SELINUX的值设置为disabled，重启后生效</p>
+<p>2&gt; 以特权方式启动容器 </p>
+<p>指定–privileged参数</p>
+<p>如：# docker run -it –privileged=true -v /test:/soft centos /bin/bash</p>
+<h3 id="进入stop状态的容器"><a href="#进入stop状态的容器" class="headerlink" title="进入stop状态的容器"></a>进入stop状态的容器</h3><ol>
+<li>首先docker run启动要启动的容器</li>
+<li>然后docker exec -it 就可以</li>
 </ol>
-<h1 id="linux发行版"><a href="#linux发行版" class="headerlink" title="linux发行版"></a>linux发行版</h1><p>RHEL商业版 红帽linux</p>
-<p>CentOS社区版 免费</p>
-<p>Ubuntu乌班图 以桌面为主</p>
-<p>Debian</p>
-<p>因CentOS具有商业水准，并且免费，国内主要使用CentOS</p>
-<h1 id="RHCE红帽认证工程师"><a href="#RHCE红帽认证工程师" class="headerlink" title="RHCE红帽认证工程师"></a>RHCE红帽认证工程师</h1><p>分为三个等级：</p>
-<p>RHCSA：红帽认证系统管理员</p>
-<p>RHCE：红帽认证工程师</p>
-<p>RHCA：红帽认证架构师</p>
-<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><p>真正的服务器一般分为3种：</p>
-<ol>
-<li>塔式服务器</li>
-<li>机架式服务器</li>
-<li>刀片式服务器</li>
-</ol>
-<p>机架式服务器常用于服务器领域</p>
-<h1 id="如何得到一个云服务器"><a href="#如何得到一个云服务器" class="headerlink" title="如何得到一个云服务器"></a>如何得到一个云服务器</h1><ol>
-<li>有一台服务器（中大型计算机）</li>
-<li>安装服务器系统（linux操作系统）</li>
-</ol>
-<h1 id="云计算核心目的"><a href="#云计算核心目的" class="headerlink" title="云计算核心目的"></a>云计算核心目的</h1><p>保证系统平稳运行</p>
-<h1 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h1><p>安装VMware Workstation Pro、CentOS 7、FinalSehll shell连接软件</p>
-<p>以上软件问度娘</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>1.虚拟机安装后怎么删除</p>
-<p>在VMWARE中，右键虚拟机名称，选择管理，选择从磁盘删除</p>
+<h3 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h3><p>tar默认位相对路径  如果压缩的路径包含绝对路径要加 -P参数</p>
+<p>-P参数作用： 保留绝对路径，允许备份数据中含有根目录 ‘/’</p>
 
       
 
@@ -246,7 +230,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -302,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/07/06/docker%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +300,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/08/k8s%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          云计算二文件和用户管理
+          k8s杂症库
         
       </div>
     </a>
   
   
-    <a href="/2021/06/12/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">云原生概念</div>
+    <a href="/2021/07/06/docker%20-v%20%E6%8C%82%E8%BD%BD%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker -v 挂载问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

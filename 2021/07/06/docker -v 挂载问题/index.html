@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
-  <title>云计算一走进linux | Fengzhongxiu的博客</title>
+  <title>docker -v 挂载问题 | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+  <meta name="description" content="描述docker -v 挂载的6个问题 参考下列博文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;ivictor&#x2F;p&#x2F;4834864.html 下列复制自上面博文，只为自己日后查找方便 详细说明Docker容器启动的时候，如果要挂载宿主机的一个目录，可以用-v参数指定。 譬如我要启动一个centos容器，宿主机的&#x2F;test目录挂载到容器的&#x2F;soft目录，可通过以下方式指定： # docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云计算一走进linux">
-<meta property="og:url" content="https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/index.html">
+<meta property="og:title" content="docker -v 挂载问题">
+<meta property="og:url" content="https://fengzhongxiu.github.io/2021/07/06/docker%20-v%20%E6%8C%82%E8%BD%BD%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="开源软件和linux起源 Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼  Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核">
+<meta property="og:description" content="描述docker -v 挂载的6个问题 参考下列博文：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;ivictor&#x2F;p&#x2F;4834864.html 下列复制自上面博文，只为自己日后查找方便 详细说明Docker容器启动的时候，如果要挂载宿主机的一个目录，可以用-v参数指定。 譬如我要启动一个centos容器，宿主机的&#x2F;test目录挂载到容器的&#x2F;soft目录，可通过以下方式指定： # docker">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-14T15:25:37.000Z">
-<meta property="article:modified_time" content="2021-06-15T15:47:18.000Z">
+<meta property="article:published_time" content="2021-07-06T02:27:58.000Z">
+<meta property="article:modified_time" content="2021-07-06T03:55:26.764Z">
 <meta property="article:author" content="Feng Zhongxiu">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fengzhongxiu的博客" type="application/atom+xml">
@@ -151,57 +151,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-云计算一走进linux" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker -v 挂载问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      云计算一走进linux
+      docker -v 挂载问题
     </h1>
   
 
         
-        <a href="/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" class="archive-article-date">
-  	<time datetime="2021-06-14T15:25:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-14</time>
+        <a href="/2021/07/06/docker%20-v%20%E6%8C%82%E8%BD%BD%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-07-06T02:27:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="开源软件和linux起源"><a href="#开源软件和linux起源" class="headerlink" title="开源软件和linux起源"></a>开源软件和linux起源</h1><ol>
-<li><p>Richard M.stallman 1984 GNU Copyleft OpenSource Free GPL: 自由软件之父  理查德·斯托曼</p>
-</li>
-<li><p>Linus Benedict Torvalds：林纳斯·本纳迪克特·托瓦兹 linux内核的发明人，1991年创造出了这套最流行的操作系统内核<span id="more"></span> </p>
-</li>
-</ol>
-<h1 id="linux发行版"><a href="#linux发行版" class="headerlink" title="linux发行版"></a>linux发行版</h1><p>RHEL商业版 红帽linux</p>
-<p>CentOS社区版 免费</p>
-<p>Ubuntu乌班图 以桌面为主</p>
-<p>Debian</p>
-<p>因CentOS具有商业水准，并且免费，国内主要使用CentOS</p>
-<h1 id="RHCE红帽认证工程师"><a href="#RHCE红帽认证工程师" class="headerlink" title="RHCE红帽认证工程师"></a>RHCE红帽认证工程师</h1><p>分为三个等级：</p>
-<p>RHCSA：红帽认证系统管理员</p>
-<p>RHCE：红帽认证工程师</p>
-<p>RHCA：红帽认证架构师</p>
-<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><p>真正的服务器一般分为3种：</p>
-<ol>
-<li>塔式服务器</li>
-<li>机架式服务器</li>
-<li>刀片式服务器</li>
-</ol>
-<p>机架式服务器常用于服务器领域</p>
-<h1 id="如何得到一个云服务器"><a href="#如何得到一个云服务器" class="headerlink" title="如何得到一个云服务器"></a>如何得到一个云服务器</h1><ol>
-<li>有一台服务器（中大型计算机）</li>
-<li>安装服务器系统（linux操作系统）</li>
-</ol>
-<h1 id="云计算核心目的"><a href="#云计算核心目的" class="headerlink" title="云计算核心目的"></a>云计算核心目的</h1><p>保证系统平稳运行</p>
-<h1 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h1><p>安装VMware Workstation Pro、CentOS 7、FinalSehll shell连接软件</p>
-<p>以上软件问度娘</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>1.虚拟机安装后怎么删除</p>
-<p>在VMWARE中，右键虚拟机名称，选择管理，选择从磁盘删除</p>
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>docker -v 挂载的6个问题</p>
+<p>参考下列博文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ivictor/p/4834864.html">https://www.cnblogs.com/ivictor/p/4834864.html</a></p>
+<p>下列复制自上面博文，只为自己日后查找方便</p>
+<h2 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h2><p>Docker容器启动的时候，如果要挂载宿主机的一个目录，可以用-v参数指定。</p>
+<p>譬如我要启动一个centos容器，宿主机的/test目录挂载到容器的/soft目录，可通过以下方式指定：</p>
+<p># docker run -it -v /test:/soft centos /bin/bash</p>
+<p>这样在容器启动后，容器内会自动创建/soft的目录。通过这种方式，我们可以明确一点，即-v参数中，冒号”:”前面的目录是宿主机目录，后面的目录是容器内目录。</p>
+<p>貌似简单，其实不然，下面我们来验证一下：</p>
+<p>一、容器目录不可以为相对路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it -v /test:soft centos /bin/bash</span><br><span class="line">invalid value &quot;/test:soft&quot; for flag -v: soft is not an absolute path</span><br><span class="line">See &#x27;docker run --help&#x27;.</span><br></pre></td></tr></table></figure>
+
+<p>直接报错，提示soft不是一个绝对路径，所谓的绝对路径，必须以下斜线“/”开头。</p>
+<p>二、宿主机目录如果不存在，则会自动生成</p>
+<p>如果宿主机中存在/test目录，首先删除它</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# rm -rf /test</span><br><span class="line">[root@localhost ~]# ls /</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br></pre></td></tr></table></figure>
+
+<p>启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it -v /test:/soft centos /bin/bash</span><br><span class="line">[root@a487a3ca7997 /]# ls</span><br><span class="line">bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  soft  srv  sys  tmp  usr  var</span><br></pre></td></tr></table></figure>
+
+<p>查看宿主机，发现新增了一个/test目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls /</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  test  tmp  usr  var</span><br></pre></td></tr></table></figure>
+
+<p>三、宿主机的目录如果为相对路径呢？</p>
+<p>这次，我们换个目录名test1试试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker run -it -v test1:/soft centos /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>再到宿主机上查看是否新增了一个/test1目录，结果没有，是不是因为我用的是相对路径，所以生成的test1目录在当前目录下，结果发现还是没有。那容器内的/soft目录挂载到哪里去了？通过docker inspect命令，查看容器“Mounts”那一部分，我们可以得到这个问题的答案。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;test1&quot;,</span><br><span class="line">        &quot;Source&quot;: &quot;/var/lib/docker/volumes/test1/_data&quot;,</span><br><span class="line">        &quot;Destination&quot;: &quot;/soft&quot;,</span><br><span class="line">        &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">        &quot;Mode&quot;: &quot;z&quot;,</span><br><span class="line">        &quot;RW&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，容器内的/soft目录挂载的是宿主机上的/var/lib/docker/volumes/test1/_data目录</p>
+<p>原来，所谓的相对路径指的是/var/lib/docker/volumes/，与宿主机的当前目录无关。</p>
+<p>四、如果只是-v指定一个目录，这个又是如何对应呢？</p>
+<p>启动一个容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it -v /test2 centos /bin/bash</span><br><span class="line">[root@ea24067bc902 /]# ls</span><br><span class="line">bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  test2  tmp  usr  var</span><br></pre></td></tr></table></figure>
+
+<p>同样使用docker inspect命令查看宿主机的挂载目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">         &quot;Name&quot;: &quot;96256232eb74edb139d652746f0fe426e57fbacdf73376963e3acdb411b3d73a&quot;,</span><br><span class="line">         &quot;Source&quot;: &quot;/var/lib/docker/volumes/96256232eb74edb139d652746f0fe426e57fbacdf73376963e3acdb411b3d73a/_data&quot;,</span><br><span class="line">         &quot;Destination&quot;: &quot;/test2&quot;,</span><br><span class="line">         &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">         &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">         &quot;RW&quot;: true</span><br><span class="line">     &#125;</span><br><span class="line"> ],</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，同3中的结果类似，只不过，它不是相对路径的目录名，而是随机生成的一个目录名。</p>
+<p>五、如果在容器内修改了目录的属主和属组，那么对应的挂载点是否会修改呢？</p>
+<p>首先开启一个容器，查看容器内/soft目录的属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it -v /test:/soft centos /bin/bash</span><br><span class="line">[root@b5ed8216401f /]# ll -d /soft/</span><br><span class="line">drwxr-xr-x 2 root root 6 Sep 24 03:48 /soft/</span><br></pre></td></tr></table></figure>
+
+<p>查看宿主机内/test目录的属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll -d /test/</span><br><span class="line">drwxr-xr-x 2 root root 6 Sep 24 11:48 /test/</span><br></pre></td></tr></table></figure>
+
+<p>在容器内新建用户，修改/soft的属主和属组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@b5ed8216401f /]# useradd victor</span><br><span class="line">[root@b5ed8216401f /]# chown -R victor.victor /soft/</span><br><span class="line">[root@b5ed8216401f /]# ll -d /soft/</span><br><span class="line">drwxr-xr-x 2 victor victor 6 Sep 24 03:48 /soft/</span><br></pre></td></tr></table></figure>
+
+<p>再来看看宿主机内/test目录的属主和属组是否会发生变化？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll -d /test/</span><br><span class="line">drwxr-xr-x 2 mycat mycat 6 Sep 24 11:48 /test/</span><br></pre></td></tr></table></figure>
+
+<p>竟然变为mycat了。。。</p>
+<p>原来，这个与UID有关系，UID，即“用户标识号”，是一个整数，系统内部用它来标识用户。一般情况下它与用户名是一一对应的。</p>
+<p>首先查看容器内victor对应的UID是多少，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@b5ed8216401f /]# cat /etc/passwd | grep victor</span><br><span class="line">victor:x:1000:1000::/home/victor:/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>victor的UID为1000，那么宿主机内1000对应的用户是谁呢？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# cat /etc/passwd |grep 1000</span><br><span class="line">mycat:x:1000:1000::/home/mycat:/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，宿主机内UID 1000对应的用户是mycat。</p>
+<p>六、容器销毁了，在宿主机上新建的挂载目录是否会消失？</p>
+<p>在这里，主要验证两种情况：一、指定了宿主机目录，即 -v /test:/soft。二、没有指定宿主机目录，即-v /soft</p>
+<p>第一种情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# rm -rf /test    --首先删除宿主机的/test目录</span><br><span class="line">[root@localhost ~]# ls /    --可以看到，宿主机上无/test目录</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br><span class="line">[root@localhost ~]# docker run -it --name=centos_test -v /test:/soft centos /bin/bash  --启动容器，为了删除方便，我用--name参数指定了容器的名字</span><br><span class="line">[root@82ad7f3a779a /]# exit</span><br><span class="line">exit</span><br><span class="line">[root@localhost ~]# docker rm centos_test   --删除容器</span><br><span class="line">centos_test</span><br><span class="line">[root@localhost ~]# ls /   --发现 /test目录依旧存在</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  test  tmp  usr  var</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，即便容器销毁了，新建的挂载目录不会消失。进一步也可验证，如果宿主机目录的属主和属组发生了变化，容器销毁后，宿主机目录的属主和属组不会恢复到挂载之前的状态。</p>
+<p>第二种情况，通过上面的验证知道，如果没有指定宿主机的目录，则容器会在/var/lib/docker/volumes/随机配置一个目录，那么我们看看这种情况下的容器销毁是否会导致相应目录的删除</p>
+<p>首先启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker run -it --name=centos_test -v /soft centos /bin/bash</span><br><span class="line">[root@6b75579ec934 /]# exit</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>通过docker inspect命令查看容器在宿主机上生成的挂载目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;b53164cb1c9f1917788638692fb22ad11994cf1fbbc2461b6c390cd3e10ea301&quot;,</span><br><span class="line">        &quot;Source&quot;: &quot;/var/lib/docker/volumes/b53164cb1c9f1917788638692fb22ad11994cf1fbbc2461b6c390cd3e10ea301/_data&quot;,</span><br><span class="line">        &quot;Destination&quot;: &quot;/soft&quot;,</span><br><span class="line">        &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">        &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">        &quot;RW&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<p>对应的是/var/lib/docker/volumes/b53164cb1c9f1917788638692fb22ad11994cf1fbbc2461b6c390cd3e10ea301/_data目录</p>
+<p>销毁容器，看目录是否存在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker rm centos_test</span><br><span class="line">centos_test</span><br><span class="line">[root@localhost ~]# ll /var/lib/docker/volumes/b53164cb1c9f1917788638692fb22ad11994cf1fbbc2461b6c390cd3e10ea301</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x 2 root root 6 Sep 24 14:25 _data</span><br></pre></td></tr></table></figure>
+
+<p>发现该目录依旧存在，即便重启了docker服务，该目录依旧存在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl restart docker</span><br><span class="line">[root@localhost ~]# ll /var/lib/docker/volumes/b53164cb1c9f1917788638692fb22ad11994cf1fbbc2461b6c390cd3e10ea301</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x 2 root root 6 Sep 24 14:25 _data</span><br></pre></td></tr></table></figure>
 
       
 
@@ -246,7 +295,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -302,7 +351,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/06/14/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E8%B5%B0%E8%BF%9Blinux/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/07/06/docker%20-v%20%E6%8C%82%E8%BD%BD%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +365,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/15/%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E6%96%87%E4%BB%B6%E5%92%8C%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/06/docker%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          云计算二文件和用户管理
+          docker老中医
         
       </div>
     </a>
   
   
-    <a href="/2021/06/12/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">云原生概念</div>
+    <a href="/2021/07/06/%E9%BB%91%E7%A7%91%E6%8A%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">黑科技汇总</div>
       <i class="icon-circle-right"></i>
     </a>
   
