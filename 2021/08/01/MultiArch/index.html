@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
   <title>MultiArch | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述使用debian，通过MultiArch在同一种架构上安装两种不同架构的应用程序.">
+  <meta name="description" content="概述通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MultiArch">
 <meta property="og:url" content="https://fengzhongxiu.github.io/2021/08/01/MultiArch/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="概述使用debian，通过MultiArch在同一种架构上安装两种不同架构的应用程序.">
+<meta property="og:description" content="概述通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-01T10:55:29.000Z">
-<meta property="article:modified_time" content="2021-08-03T08:41:22.987Z">
+<meta property="article:modified_time" content="2021-08-05T03:05:18.526Z">
 <meta property="article:author" content="Feng Zhongxiu">
 <meta property="article:tag" content="CPU架构">
 <meta name="twitter:card" content="summary">
@@ -171,72 +171,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>使用debian，通过MultiArch在同一种架构上安装两种不同架构的应用程序.</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用</p>
 <span id="more"></span> 
 
-<h3 id="debian环境初始化"><a href="#debian环境初始化" class="headerlink" title="debian环境初始化"></a>debian环境初始化</h3><h4 id="下载debian系统"><a href="#下载debian系统" class="headerlink" title="下载debian系统"></a>下载debian系统</h4><p><a target="_blank" rel="noopener" href="https://www.debian.org/index.zh-cn.html">https://www.debian.org/index.zh-cn.html</a> 并安装</p>
-<h4 id="添加终端"><a href="#添加终端" class="headerlink" title="添加终端"></a>添加终端</h4><p>默认桌面系统没有终端，需要自行添加定义快捷键后通过快捷键使用：</p>
-<p>在设置-&gt;键盘-&gt;快捷键-&gt;自定义快捷键-&gt;添加 </p>
-<p>名称：Terminal </p>
-<p>命令：gnome-terminal  </p>
-<p>设置快捷键，我设置的为Ctrl +Alt +T</p>
-<h4 id="root用户直接登陆设置"><a href="#root用户直接登陆设置" class="headerlink" title="root用户直接登陆设置"></a>root用户直接登陆设置</h4><p>默认debian系统无法直接通过root用户登陆需要进行如下操作：</p>
-<ol>
-<li><p>首先登陆普通用户，通过su命令切换到root用户</p>
-</li>
-<li><p>vi /etc/gdm3/daemon.conf</p>
-<p>在 【security】 下面添加 AllowRoot=true</p>
-</li>
-<li><p>vi /etc/pam.d/gdm-password</p>
-<p>注释掉这一行 auth required pam_succeed_if.so user != root quiet_success<br>#auth required pam_succeed_if.so user != root quiet_success</p>
-</li>
-</ol>
-<h4 id="ip查看"><a href="#ip查看" class="headerlink" title="ip查看"></a>ip查看</h4><p>debian系统查看ip ：ip addr show</p>
-<h4 id="root远程ssh登陆"><a href="#root远程ssh登陆" class="headerlink" title="root远程ssh登陆"></a>root远程ssh登陆</h4><p>Debian默认禁止root用户登陆系统</p>
-<ol>
-<li>修改sshd_config文件，命令为：vi /etc/ssh/sshd_config</li>
-<li>将#PasswordAuthentication no的注释去掉，并且将no修改为yes</li>
-<li>将#PermitRootLogin prohibit-password的注释去掉，将prohibit-password改为yes</li>
-<li>启动SSH服务，命令为：/etc/init.d/ssh restart // 或者service ssh restart</li>
-<li>验证SSH服务状态，命令为：/etc/init.d/ssh status</li>
-</ol>
 <h3 id="MultiArch概念说明"><a href="#MultiArch概念说明" class="headerlink" title="MultiArch概念说明"></a>MultiArch概念说明</h3><h4 id="不同架构"><a href="#不同架构" class="headerlink" title="不同架构"></a>不同架构</h4><p>MultiArch中的不通架构实际指的是不同的ABI(Application Binary Interface)，并不是指令集ISA（instruction set）</p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><h5 id="添加架构"><a href="#添加架构" class="headerlink" title="添加架构"></a>添加架构</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --add-architecture arm64</span><br></pre></td></tr></table></figure>
-
-<h5 id="更新包管理器"><a href="#更新包管理器" class="headerlink" title="更新包管理器"></a>更新包管理器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<h5 id="移除某一个架构"><a href="#移除某一个架构" class="headerlink" title="移除某一个架构"></a>移除某一个架构</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --remove-architecture arm64</span><br></pre></td></tr></table></figure>
-
-<p>在移除某一个架构的时候需要先把所有的包移除</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get purge &quot;.*:&lt;arch&gt;&quot;</span><br></pre></td></tr></table></figure>
-
-<h5 id="dpkg架构存储位置"><a href="#dpkg架构存储位置" class="headerlink" title="dpkg架构存储位置"></a>dpkg架构存储位置</h5><p>/var/lib/dpkg/arch</p>
-<h5 id="安装-移除包"><a href="#安装-移除包" class="headerlink" title="安装/移除包"></a>安装/移除包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install package:architecture</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i package_version_architecture.deb</span><br><span class="line">dpkg -r package:architecture</span><br></pre></td></tr></table></figure>
-
-<h3 id="交叉编译环境"><a href="#交叉编译环境" class="headerlink" title="交叉编译环境"></a>交叉编译环境</h3><h4 id="GCC下载"><a href="#GCC下载" class="headerlink" title="GCC下载"></a>GCC下载</h4><p><a target="_blank" rel="noopener" href="http://releases.linaro.org/components/toolchain/binaries/">http://releases.linaro.org/components/toolchain/binaries/</a></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar -C /usr/local/aarch64</span><br></pre></td></tr></table></figure>
-
-<h4 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line">export PATH=$PATH:/usr/local/aarch64/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin</span><br></pre></td></tr></table></figure>
-
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aarch64-linux-gnu-gcc -v</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=（安装目录）  --with-cc=aarch64-linux-gnu-gcc --with-cpp=aarch64-linux-gnu-g++</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h5 id="一、C-compiler-aarch64-linux-gnu-gcc-is-not-found"><a href="#一、C-compiler-aarch64-linux-gnu-gcc-is-not-found" class="headerlink" title="一、C compiler aarch64-linux-gnu-gcc is not found"></a>一、C compiler aarch64-linux-gnu-gcc is not found</h5><p>由于configure首先会编译一个小测试程序来验证编译器是否可以正常工作，由于交叉编译所编译出来的程序无法在编译主机上运行，故产生的问题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi auto/cc/name</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if [ $ngx_found = no ]; then</span><br><span class="line">        echo</span><br><span class="line">        echo $0: error: C compiler $CC is not found</span><br><span class="line">        echo</span><br><span class="line">        exit 1</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<p>将exit1注释掉</p>
-<h5 id="二、can-not-detect-int-size"><a href="#二、can-not-detect-int-size" class="headerlink" title="二、can not detect int size"></a>二、can not detect int size</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi auto/types/sizeof</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngx_test=&quot;$CC $CC_TEST_FLAGS $CC_AUX_FLAGS \</span><br><span class="line">          -o $NGX_AUTOTEST $NGX_AUTOTEST.c $NGX_LD_OPT $ngx_feature_libs&quot;</span><br></pre></td></tr></table></figure>
-
-<p>修改为</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngx_test=&quot;gcc $CC_TEST_FLAGS $CC_AUX_FLAGS \</span><br><span class="line">          -o $NGX_AUTOTEST $NGX_AUTOTEST.c $NGX_LD_OPT $ngx_feature_libs&quot;</span><br></pre></td></tr></table></figure>
-
 <h3 id="MultiArch应用"><a href="#MultiArch应用" class="headerlink" title="MultiArch应用"></a>MultiArch应用</h3><p>使用multiarch/qemu-user-static来实现在x86主机上模拟arm环境</p>
 <h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> x86_64</span></span><br><span class="line">docker run --rm -t arm64v8/ubuntu uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> standard_init_linux.go:178: <span class="built_in">exec</span> user process caused <span class="string">&quot;exec format error&quot;</span></span></span><br><span class="line">docker run --rm --privileged multiarch/qemu-user-static --reset -p yes</span><br><span class="line">docker run --rm -t arm64v8/ubuntu uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> aarch64</span></span><br></pre></td></tr></table></figure>
 
@@ -281,35 +219,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/fs/binfmt_misc/status    # Disable binfmt_misc</span><br><span class="line">echo 1 &gt; /proc/sys/fs/binfmt_misc/status    # Enable binfmt_misc</span><br></pre></td></tr></table></figure>
 
 <p>如果想删除当前binfmt_misc中的所有匹配规则，可以向其传入-1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -1 &gt; /proc/sys/fs/binfmt_misc/status    # Disable all matches</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>binfmt_misc文档翻译</p>
-<p>Kernel Support for miscellaneous (your favourite) Binary Formats v1.1<br>内核对五花八门的二进制格式的支持<br>This Kernel feature allows you to invoke almost (for restrictions see below)<br>every program by simply typing its name in the shell.<br>该内核允许你调用几乎任何一个程序，你仅仅需要在shell中键入他的名字。<br>This includes for example compiled Java(TM), Python or Emacs programs.<br>这包括例如被编译之后的java，python或者是emacs程序。</p>
-<p>To achieve this you must tell binfmt_misc which interpreter has to be invoked<br>with which binary. Binfmt_misc recognises the binary-type by matching some bytes<br>at the beginning of the file with a magic byte sequence (masking out specified<br>bits) you have supplied. Binfmt_misc can also recognise a filename extension<br>aka ‘.com’ or ‘.exe’.<br>为了达到这个目的，你必须告诉binfmt_misc你需要调用哪一个二进制格式的解释器。Binfmt_misc<br>程序通过匹配文件开始的一些二进制序列（以一些特殊的二进制位来标识）来识别是哪一种二进制<br>类型。Binfmt_misc也能够识别一个文件的扩展名例如’.com’或者是’.exe’.</p>
-<p>First you must mount binfmt_misc:<br>mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc<br>首先你需要挂载binfmt_misc<br>mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc</p>
-<p>To actually register a new binary type, you have to set up a string looking like<br>:name:type:offset:magic:mask:interpreter: (where you can choose the ‘:’ upon<br>your needs) and echo it to /proc/sys/fs/binfmt_misc/register.<br>为了能够真正的注册一个新的二进制类型，你应该设置一个字符串看上去像:name:type:offset<br>:magic:mask:interpreter:(你可以根据你的需要选择’:’)并且将他广播到/proc/sys/fs/binfmt_misc/resgister中</p>
-<p>Here is what the fields mean:<br>下面是这些参数的意思：<br> - ‘name’ is an identifier string. A new /proc file will be created with this<br>  name below /proc/sys/fs/binfmt_misc<br> - ‘name’是定义字符串.一个新的/proc文件将在/proc/sys/fs/binfmt_misc下以他的名字被创建</p>
-<p> - ‘type’ is the type of recognition. Give ‘M’ for magic and ‘E’ for extension.<br> - ‘type’ 是识别的类型。’M’代表着二进制序列和’E’是扩展</p>
-<p> - ‘offset’ is the offset of the magic/mask in the file, counted in bytes. This<br>  defaults to 0 if you omit it (i.e. you write ‘:name:type::magic…’)<br> - ‘offset’是在文件中二进制学列的偏移量，以位计数。如果你这样写’:name:type::magic…’,<br>  那么它默认是0。</p>
-<p> - ‘magic’ is the byte sequence binfmt_misc is matching for. The magic string<br>  may contain hex-encoded characters like \x0a or \xA4. In a shell environment<br>  you will have to write \x0a to prevent the shell from eating your .<br>  If you chose filename extension matching, this is the extension to be<br>  recognised (without the ‘.’, the \x0a specials are not allowed). Extension<br>  matching is case sensitive!<br> - ‘magic’是binfmt_misc要匹配的位序列。这个位序列可能包含16进制编码的字符例如\x0a<br>  或者是 \xA4.在一个shell环境中，你必须写\x0a来避免shell吞掉你的\。如果你选择<br>  使用文件扩展名开匹配的话，下面是一些小规则(不能有’.’,\x0a是不允许的).并且扩展名<br>  匹配是大小写敏感的。</p>
-<p> - ‘mask’ is an (optional, defaults to all 0xff) mask. You can mask out some<br>  bits from matching by supplying a string like magic and as long as magic.<br>  The mask is anded with the byte sequence of the file.<br> - ‘mask’是一个标识(可选的，默认所有的都是0xff)。通过提供一个类似于magic或者是和magic<br>一样长的字符串来从正在匹配的文件中标识出一些位。</p>
-<p> - ‘interpreter’ is the program that should be invoked with the binary as first<br>  argument (specify the full path)<br> - ‘interpreter’ 应该是被二进制文件首先被调用的参数(特别是全路径)。</p>
-<p>There are some restrictions:<br>同时还有一些显示:<br> - the whole register string may not exceed 255 characters          整体的寄存器字符串不应该超过255个字符<br> - the magic must reside in the first 128 bytes of the file, i.e.      位序列一定要放在文件的前128位上，例如offset+size(magic)一定要少于128<br>  offset+size(magic) has to be less than 128<br> - the interpreter string may not exceed 127 characters           解释器字符串不能超过127个字符</p>
-<p>To use binfmt_misc you have to mount it first. You can mount it with<br>“mount -t binfmt_misc none /proc/sys/fs/binfmt_misc” command, or you can add<br>a line “none  /proc/sys/fs/binfmt_misc binfmt_misc defaults 0 0” to your<br>/etc/fstab so it auto mounts on boot.<br>为了能够使用binfmt_misc你必须先去挂载她。你可以使用命令”mount -t binfmt_misc<br>none /proc/sys/fs/binfmt_misc”来挂载她，或者是你可以在/etc/fstab中添加一行<br>“none /proc/sys/fs/binfmt_misc binfmt_misc defaults 0 0”,这样他就会自动在<br>启动的时候挂载。</p>
-<p>You may want to add the binary formats in one of your /etc/rc scripts during<br>boot-up. Read the manual of your init program to figure out how to do this<br>right.<br>你可能想要在启动的时候在你的一个/etc/rc脚本文件中添加一个二进制格式。阅读你的启动<br>程序手册来弄清楚如何正确的做这些事情。</p>
-<p>Think about the order of adding entries! Later added entries are matched first!<br>请思考一些添加的顺序，后添加的会先被匹配。</p>
-<p>A few examples (assumed you are in /proc/sys/fs/binfmt_misc):<br>几个小例子（假设你在/proc/sys/fs/binfmt_misc中）</p>
-<p>- enable support for em86 (like binfmt_em86, for Alpha AXP only):<br> echo ‘:i386:M::\x7fELF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x03:\xff\xff\xff\xff\xff\xfe\xfe\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfb\xff\xff:/bin/em86:’ &gt; register<br> echo ‘:i486:M::\x7fELF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x06:\xff\xff\xff\xff\xff\xfe\xfe\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfb\xff\xff:/bin/em86:’ &gt; register<br>启动对em86的支持(类似于binfmt_em86，仅仅对Alpha AXP适用)<br>echo ‘:i386:M::\x7fELF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x03:\xff\xff\xff\xff\xff\xfe\xfe\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfb\xff\xff:/bin/em86:’ &gt; register<br> echo ‘:i486:M::\x7fELF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x06:\xff\xff\xff\xff\xff\xfe\xfe\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfb\xff\xff:/bin/em86:’ &gt; register</p>
-<p>- enable support for packed DOS applications (pre-configured dosemu hdimages):<br> echo ‘:DEXE:M::\x0eDEX::/usr/bin/dosexec:’ &gt; register<br>启动对DOS应用程序的支持<br>echo ‘:DEXE:M::\x0eDEX::/usr/bin/dosexec:’ &gt; register</p>
-<p>- enable support for Windows executables using wine:<br> echo ‘:DOSWin:M::MZ::/usr/local/bin/wine:’ &gt; register<br>启动使用wine对windows可执行程序的支持<br>echo ‘:DOSWin:M::MZ::/usr/local/bin/wine:’ &gt; register</p>
-<p>For java support see Documentation/java.txt<br>对于java支持，请查看Documentation/java.txt文件</p>
-<p>You can enable/disable binfmt_misc or one binary type by echoing 0 (to disable)<br>or 1 (to enable) to /proc/sys/fs/binfmt_misc/status or /proc/…/the_name.<br>Catting the file tells you the current status of binfmt_misc/the entry.<br>你可以通过向/proc/sys/fs/binfmt_misc/status 或者是 /proc/…/the_name广播0(关闭)<br>或者是1(启动)来启动/关闭binfmt_misc或者是一个二进制类型。查看文件能够告诉你binfmt_misc<br>/the entry的当前状态。</p>
-<p>You can remove one entry or all entries by echoing -1 to /proc/…/the_name<br>or /proc/sys/fs/binfmt_misc/status.<br>你可以通过向/proc/…/the_name或者是/proc/sys/fs/binfmt_misc/status广播-1来移除<br>一个记录或者是所有的记录。</p>
-<p>HINTS:<br>提示：<br>======</p>
-<p>If you want to pass special arguments to your interpreter, you can<br>write a wrapper script for it. See Documentation/java.txt for an<br>example.<br>如果你想要向你的解释器传送特殊的参数，你可以向他写一个脚本文件。例如<br>你可以查看Documentation/java.txt文件。</p>
-<p>Your interpreter should NOT look in the PATH for the filename; the<br>kernel passes it the full filename to use.  Using the PATH can cause<br>unexpected behaviour and be a security hazard.<br>你的解释器不应该查看文件名字的路径。（这句话不是很明白）内核会将文件全名<br>传送给她使用。使用PATH可能会导致不可预料的问题并且会成为一个安全危险。</p>
-<p>这里有一个有关binfmt_misc的网页:<br><a target="_blank" rel="noopener" href="http://www.tat.physik.uni-tuebingen.de/~rguenth/linux/binfmt_misc.html">http://www.tat.physik.uni-tuebingen.de/~rguenth/linux/binfmt_misc.html</a></p>
 
       
 
@@ -424,11 +333,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/04/python%E5%8C%85aarm64%E6%9E%B6%E6%9E%84%E9%BA%92%E9%BA%9FV10Sp1%E7%A6%BB%E7%BA%BF%E9%80%82%E9%85%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/03/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python包aarm64架构麒麟V10Sp1离线适配
+          交叉编译环境
         
       </div>
     </a>
@@ -462,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#debian%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">debian环境初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDdebian%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text">下载debian系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BB%88%E7%AB%AF"><span class="toc-number">2.2.</span> <span class="toc-text">添加终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E7%99%BB%E9%99%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">root用户直接登陆设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ip%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.4.</span> <span class="toc-text">ip查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E8%BF%9C%E7%A8%8Bssh%E7%99%BB%E9%99%86"><span class="toc-number">2.5.</span> <span class="toc-text">root远程ssh登陆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">MultiArch概念说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%9E%B6%E6%9E%84"><span class="toc-number">3.1.</span> <span class="toc-text">不同架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.1.</span> <span class="toc-text">添加架构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.2.2.</span> <span class="toc-text">更新包管理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%9F%90%E4%B8%80%E4%B8%AA%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.3.</span> <span class="toc-text">移除某一个架构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dpkg%E6%9E%B6%E6%9E%84%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">3.2.4.</span> <span class="toc-text">dpkg架构存储位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-%E7%A7%BB%E9%99%A4%E5%8C%85"><span class="toc-number">3.2.5.</span> <span class="toc-text">安装&#x2F;移除包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">交叉编译环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GCC%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.1.</span> <span class="toc-text">GCC下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">4.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.3.</span> <span class="toc-text">添加环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">4.4.</span> <span class="toc-text">验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-number">4.5.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">4.6.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E3%80%81C-compiler-aarch64-linux-gnu-gcc-is-not-found"><span class="toc-number">4.6.1.</span> <span class="toc-text">一、C compiler aarch64-linux-gnu-gcc is not found</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E3%80%81can-not-detect-int-size"><span class="toc-number">4.6.2.</span> <span class="toc-text">二、can not detect int size</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E5%BA%94%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">MultiArch应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">5.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">5.3.</span> <span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#binfmt-misc"><span class="toc-number">6.</span> <span class="toc-text">binfmt_misc</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">MultiArch概念说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">不同架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">MultiArch应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">3.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#binfmt-misc"><span class="toc-number">4.</span> <span class="toc-text">binfmt_misc</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -599,15 +508,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">国产化适配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
