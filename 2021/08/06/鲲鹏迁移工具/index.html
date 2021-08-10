@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
-  <title>shell特殊字符 | Fengzhongxiu的博客</title>
+  <title>离网centos环境鲲鹏迁移工具的使用 | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述shell脚本中28个特殊字符说明并举例">
+  <meta name="description" content="概述相应国家国产化号召，将x86使用鲲鹏916&#x2F;920CPU，本文使用离网环境 12# uname -aLinux kunpeng 3.10.0-862.14.4.el7.x86_64 #1 SMP Wed Sep 26 15:12:11 UTC 2018 x86_64 x86_64 x86_64 GNU&#x2F;Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell特殊字符">
-<meta property="og:url" content="https://fengzhongxiu.github.io/2021/08/01/shell%E4%B8%AD%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E6%84%8F%E4%B9%89/index.html">
+<meta property="og:title" content="离网centos环境鲲鹏迁移工具的使用">
+<meta property="og:url" content="https://fengzhongxiu.github.io/2021/08/06/%E9%B2%B2%E9%B9%8F%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="概述shell脚本中28个特殊字符说明并举例">
+<meta property="og:description" content="概述相应国家国产化号召，将x86使用鲲鹏916&#x2F;920CPU，本文使用离网环境 12# uname -aLinux kunpeng 3.10.0-862.14.4.el7.x86_64 #1 SMP Wed Sep 26 15:12:11 UTC 2018 x86_64 x86_64 x86_64 GNU&#x2F;Linux">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-01T10:55:29.000Z">
-<meta property="article:modified_time" content="2021-08-03T04:02:44.842Z">
+<meta property="article:published_time" content="2021-08-06T03:55:29.000Z">
+<meta property="article:modified_time" content="2021-08-06T08:08:10.280Z">
 <meta property="article:author" content="Feng Zhongxiu">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="国产化适配">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fengzhongxiu的博客" type="application/atom+xml">
@@ -151,30 +151,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-shell中特殊字符意义" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-鲲鹏迁移工具" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      shell特殊字符
+      离网centos环境鲲鹏迁移工具的使用
     </h1>
   
 
         
-        <a href="/2021/08/01/shell%E4%B8%AD%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E6%84%8F%E4%B9%89/" class="archive-article-date">
-  	<time datetime="2021-08-01T10:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
+        <a href="/2021/08/06/%E9%B2%B2%E9%B9%8F%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/" class="archive-article-date">
+  	<time datetime="2021-08-06T03:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>shell脚本中28个特殊字符说明并举例</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>相应国家国产化号召，将x86使用鲲鹏916/920CPU，本文使用离网环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> uname -a</span></span><br><span class="line">Linux kunpeng 3.10.0-862.14.4.el7.x86_64 #1 SMP Wed Sep 26 15:12:11 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span> 
 
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/49176.htm">https://www.jb51.net/article/49176.htm</a></p>
+<h3 id="离网centos安装鲲鹏代码迁移工具"><a href="#离网centos安装鲲鹏代码迁移工具" class="headerlink" title="离网centos安装鲲鹏代码迁移工具"></a>离网centos安装鲲鹏代码迁移工具</h3><h4 id="安装汇编依赖软件"><a href="#安装汇编依赖软件" class="headerlink" title="安装汇编依赖软件"></a>安装汇编依赖软件</h4><p>手动将以下基于服务器架构对应的rpm包添加到“/opt/portadv/tools/all_asm/tmp/rpm”目录下，再进入“/opt/portadv/tools/all_asm/bin”目录执行以下命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash addAsmLibraries.sh</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://vault.centos.org/centos/8.2.2004/BaseOS/x86_64/os/Packages/libstdc++-8.3.1-5.el8.0.2.x86_64.rpm">http://vault.centos.org/centos/8.2.2004/BaseOS/x86_64/os/Packages/libstdc++-8.3.1-5.el8.0.2.x86_64.rpm</a></p>
+<p><a target="_blank" rel="noopener" href="http://vault.centos.org/centos/8.2.2004/BaseOS/x86_64/os/Packages/glibc-2.28-101.el8.x86_64.rpm">http://vault.centos.org/centos/8.2.2004/BaseOS/x86_64/os/Packages/glibc-2.28-101.el8.x86_64.rpm</a></p>
+<h4 id="安装内存一致性文件"><a href="#安装内存一致性文件" class="headerlink" title="安装内存一致性文件"></a>安装内存一致性文件</h4><p>手动将以下rpm包上传到服务器任意目录（例如：/home），然后进入“/opt/portadv/tools/weakconsistency/staticcodeanalyzer”目录，执行以下命令（-t选项：可选，用于安装某一个特定的动态库，默认全部安装；/home为上述的任意目录）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./add_libraries.sh -d /home [-t libstdc++/libtinfo]</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://ftp.pbone.net/mirror/ftp.opensuse.org/ports/aarch64/distribution/leap/15.0/repo/oss/aarch64/libstdc++6-7.3.1+r258812-lp150.2.6.aarch64.rpm">http://ftp.pbone.net/mirror/ftp.opensuse.org/ports/aarch64/distribution/leap/15.0/repo/oss/aarch64/libstdc++6-7.3.1+r258812-lp150.2.6.aarch64.rpm</a></p>
+<p><a target="_blank" rel="noopener" href="http://ftp.pbone.net/mirror/ftp.opensuse.org/ports/update/leap/42.3/oss/aarch64/libncurses5-5.9-59.1.aarch64.rpm">http://ftp.pbone.net/mirror/ftp.opensuse.org/ports/update/leap/42.3/oss/aarch64/libncurses5-5.9-59.1.aarch64.rpm</a></p>
+<h4 id="迁移工具安装包"><a href="#迁移工具安装包" class="headerlink" title="迁移工具安装包"></a>迁移工具安装包</h4><table>
+<thead>
+<tr>
+<th>软件包名称</th>
+<th>软件包说明</th>
+<th>获取方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x86服务器：Porting-advisor_x.x.x_x86_64-linux.tar.gz<br />鲲鹏916/920的服务器：Porting-advisor_x.x.x_Kunpeng-linux.tar.gz</td>
+<td>鲲鹏代码迁移工具安装包</td>
+<td><a target="_blank" rel="noopener" href="https://mirror.iscas.ac.cn/kunpeng/archive/Porting_Dependency/Packages/">下载</a></td>
+</tr>
+</tbody></table>
+<p>note：软件包名称中的“ x.x.x”表示版本号。  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /root/kunpeng/Porting-advisor_2.3.T10_x86_64-linux</span><br><span class="line">bash ./add_libraries.sh</span><br></pre></td></tr></table></figure>
+
+<p>就可以访问了</p>
+<p>文章来自：<a target="_blank" rel="noopener" href="https://support.huaweicloud.com/porting-install/porting-install.pdf">https://support.huaweicloud.com/porting-install/porting-install.pdf</a></p>
 
       
 
@@ -219,7 +249,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">国产化适配</a>
         		</li>
       		
 		</ul>
@@ -275,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/08/01/shell%E4%B8%AD%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E6%84%8F%E4%B9%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/08/06/%E9%B2%B2%E9%B9%8F%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +319,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/01/MultiArch/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/09/centos7%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          MultiArch
+          centos7内核升级
         
       </div>
     </a>
   
   
-    <a href="/2021/07/08/k8s%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">k8s杂症库</div>
+    <a href="/2021/08/04/python%E5%8C%85aarm64%E6%9E%B6%E6%9E%84%E9%BA%92%E9%BA%9FV10Sp1%E7%A6%BB%E7%BA%BF%E9%80%82%E9%85%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python包aarm64架构麒麟V10Sp1离线适配</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.</span> <span class="toc-text">例子</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E7%BD%91centos%E5%AE%89%E8%A3%85%E9%B2%B2%E9%B9%8F%E4%BB%A3%E7%A0%81%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text">离网centos安装鲲鹏代码迁移工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B1%87%E7%BC%96%E4%BE%9D%E8%B5%96%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">安装汇编依赖软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">安装内存一致性文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">2.3.</span> <span class="toc-text">迁移工具安装包</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -341,7 +371,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="shell中特殊字符意义" data-title="shell特殊字符" data-url="https://fengzhongxiu.github.io/2021/08/01/shell%E4%B8%AD%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E6%84%8F%E4%B9%89/"></div>
+	<div class="ds-thread" data-thread-key="鲲鹏迁移工具" data-title="离网centos环境鲲鹏迁移工具的使用" data-url="https://fengzhongxiu.github.io/2021/08/06/%E9%B2%B2%E9%B9%8F%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -468,6 +498,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -480,11 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑科技</a>
+                <a href="javascript:void(0)" class="js-tag color4">云原生</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云原生</a>
+                <a href="javascript:void(0)" class="js-tag color4">黑科技</a>
               </li>
             
             <div class="clearfix"></div>

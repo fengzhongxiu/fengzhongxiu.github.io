@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://fengzhongxiu.github.io">
-  <title>MultiArch | Fengzhongxiu的博客</title>
+  <title>centos7内核升级 | Fengzhongxiu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用">
+  <meta name="description" content="概述升级centos7的内核">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MultiArch">
-<meta property="og:url" content="https://fengzhongxiu.github.io/2021/08/01/MultiArch/index.html">
+<meta property="og:title" content="centos7内核升级">
+<meta property="og:url" content="https://fengzhongxiu.github.io/2021/08/09/centos7%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7/index.html">
 <meta property="og:site_name" content="Fengzhongxiu的博客">
-<meta property="og:description" content="概述通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用">
+<meta property="og:description" content="概述升级centos7的内核">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-01T10:55:29.000Z">
-<meta property="article:modified_time" content="2021-08-05T03:05:18.526Z">
+<meta property="article:published_time" content="2021-08-09T10:55:29.000Z">
+<meta property="article:modified_time" content="2021-08-09T02:51:27.103Z">
 <meta property="article:author" content="Feng Zhongxiu">
-<meta property="article:tag" content="CPU架构">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Fengzhongxiu的博客" type="application/atom+xml">
@@ -151,75 +151,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MultiArch" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-centos7内核升级" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MultiArch
+      centos7内核升级
     </h1>
   
 
         
-        <a href="/2021/08/01/MultiArch/" class="archive-article-date">
-  	<time datetime="2021-08-01T10:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
+        <a href="/2021/08/09/centos7%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7/" class="archive-article-date">
+  	<time datetime="2021-08-09T10:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>通过MultiArch可以在某种单一的CPU架构上运行多种CPU架构的应用</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>升级centos7的内核</p>
 <span id="more"></span> 
 
-<h3 id="MultiArch概念说明"><a href="#MultiArch概念说明" class="headerlink" title="MultiArch概念说明"></a>MultiArch概念说明</h3><h4 id="不同架构"><a href="#不同架构" class="headerlink" title="不同架构"></a>不同架构</h4><p>MultiArch中的不通架构实际指的是不同的ABI(Application Binary Interface)，并不是指令集ISA（instruction set）</p>
-<h3 id="MultiArch应用"><a href="#MultiArch应用" class="headerlink" title="MultiArch应用"></a>MultiArch应用</h3><p>使用multiarch/qemu-user-static来实现在x86主机上模拟arm环境</p>
-<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> x86_64</span></span><br><span class="line">docker run --rm -t arm64v8/ubuntu uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> standard_init_linux.go:178: <span class="built_in">exec</span> user process caused <span class="string">&quot;exec format error&quot;</span></span></span><br><span class="line">docker run --rm --privileged multiarch/qemu-user-static --reset -p yes</span><br><span class="line">docker run --rm -t arm64v8/ubuntu uname -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> aarch64</span></span><br></pre></td></tr></table></figure>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="检查已安装的内核版本"><a href="#检查已安装的内核版本" class="headerlink" title="检查已安装的内核版本"></a>检查已安装的内核版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -rs</span><br></pre></td></tr></table></figure>
 
-<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>在x86主机上执行arm指令解析不了所以第二行会报错，当运行qemu-user-static镜像后，就会将arm架构的指令解释成x86架构的指令执行，这时执行arm架构镜像便可以。qemu-user-static就是一组静态的二进制文件qemu-$arch-static，作为interpreter，来执行特定架构的可执行文件。通过qumu-user-static和binfmt_misc一起使用，便能模拟各种不同架构</p>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>binfmt_misc识别可执行的文件格式，将其传递给特定的用户空间应用程序，如模拟器和虚拟机。binfmt_misc通过识别可执行文件格式并传递给QEMU。QEMU转换成本地指令架构代码,同时按需从目标架构系统调用转换成宿主机架构系统调用,并将其转发至宿主机内核。</p>
-<h3 id="binfmt-misc"><a href="#binfmt-misc" class="headerlink" title="binfmt_misc"></a>binfmt_misc</h3><p>在Windows平台上，可以绑定拥有特定扩展名的文件，使用特定的程序打开。比如，PDF文件就使用Acrobat Reader打开。这样做确实极大的方便了用户的使用体验。</p>
-<p>其实，在Linux平台上，也提供了类似的功能，甚至从某种意义上来说更加的强大。Linux的内核从很早开始就引入了一个叫做<strong>Miscellaneous Binary Format（binfmt_misc）</strong>的机制，可以通过要打开文件的特性来选择到底使用哪个程序来打开。比Windows更加强大的地方是，它不光光可以通过文件的扩展名来判断的，还可以通过文件开始位置的特殊的字节（Magic Byte）来判断。</p>
-<p>如果要使用这个功能的话，首先要绑定binfmt_misc，可以通过以下命令来绑定：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc</span><br></pre></td></tr></table></figure>
+<h4 id="在-CentOS-7-中升级内核"><a href="#在-CentOS-7-中升级内核" class="headerlink" title="在 CentOS 7 中升级内核"></a>在 CentOS 7 中升级内核</h4><p>CentOS 允许使用 ELRepo，这是一个第三方仓库，可以将内核升级到最新版本。</p>
+<p>在 CentOS 7 上启用 ELRepo 仓库，运行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">导入该源的秘钥</span></span><br><span class="line">rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org </span><br><span class="line"><span class="meta">#</span><span class="bash">启用该源仓库</span></span><br><span class="line">rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm </span><br><span class="line"><span class="meta">#</span><span class="bash">查看有哪些内核版本可供安装</span></span><br><span class="line">yum --disablerepo=&quot;*&quot; --enablerepo=&quot;elrepo-kernel&quot; list available</span><br></pre></td></tr></table></figure>
 
-<p>这样绑定的话，系统重新启动之后就失效了。如果想让系统每次启动的时候都自动绑定的话，可以往/etc/fstab文件中加入下面这行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">none  /proc/sys/fs/binfmt_misc binfmt_misc defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>开始安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">最新版本安装</span></span><br><span class="line">yum --enablerepo=elrepo-kernel install kernel-ml -y</span><br><span class="line"><span class="meta">#</span><span class="bash">稳定版本安装</span></span><br><span class="line">yum --enablerepo=elrepo-kernel install kernel-lt -y </span><br></pre></td></tr></table></figure>
 
-<p>绑定完之后，就可以通过向/proc/sys/fs/binfmt_misc/register（这个文件只能写不能读）文件中写入一行匹配规则字符串来告诉内核什么样的程序要用什么样的程序打开（一般使用echo命令）。这行字符串的格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:name:type:offset:magic:mask:interpreter:flags</span><br></pre></td></tr></table></figure>
+<p>安装完毕后，重启机器，手动选择新安装的新版本哦！！！</p>
+<h4 id="设置-GRUB-默认的内核版本"><a href="#设置-GRUB-默认的内核版本" class="headerlink" title="设置 GRUB 默认的内核版本"></a>设置 GRUB 默认的内核版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置 GRUB_DEFAULT=0</span></span><br><span class="line">vim /etc/default/grub</span><br><span class="line"></span><br><span class="line">GRUB_TIMEOUT=5</span><br><span class="line">GRUB_DISTRIBUTOR=&quot;$(sed &#x27;s, release .*$,,g&#x27; /etc/system-release)&quot;</span><br><span class="line">GRUB_DEFAULT=saved  #这里的saved改为0即可，重启后，默认就是你上次所选的版本了。</span><br><span class="line">GRUB_DISABLE_SUBMENU=true</span><br><span class="line">GRUB_TERMINAL_OUTPUT=&quot;console&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;rhgb quiet&quot;</span><br><span class="line">GRUB_DISABLE_RECOVERY=&quot;true&quot;</span><br></pre></td></tr></table></figure>
 
-<p>每个字段都用冒号“:”分割。某些字段拥有默认值，或者只在前面字段被设置成了某个特定值后才有效，因此可以跳过某些字段的设置，但是必须保留相应的冒号分割符。各个字段的意义如下：</p>
-<p>1）name：这个规则的名字，理论上可以取任何名字，只要不重名就可以了。但是为了方便以后维护一般都取一个有意义的名字，比如表示被打开文件特性的名字，或者要打开这个文件的程序的名字等；</p>
-<p>2）type：表示如何匹配被打开的文件，只可以使用“E”或者“M”，只能选其一，两者不可共用。“E”代表只根据待打开文件的扩展名来识别，而“M”表示只根据待打开文件特定位置的几位魔数（Magic Byte）来识别；</p>
-<p>3）offset：这个字段只对前面type字段设置成“M”之后才有效，它表示从文件的多少偏移开始查找要匹配的魔数。如果跳过这个字断不设置的话，默认就是0；</p>
-<p>4）magic：它表示真正要匹配的魔数，如果type字段设置成“M”的话；或者表示文件的扩展名，如果type字段设置成“E”的话。对于匹配魔数来说，如果要匹配的魔数是ASCII码可见字符，可以直接输入，而如果是不可见的话，可以输入其16进制数值，前面加上“\x”或者“\x”（如果在Shell环境中的话。对于匹配文件扩展名来说，就在这里写上文件的扩展名，但不要包括扩展名前面的点号（“.”），且这个扩展名是大小写敏感的，有些特殊的字符，例如目录分隔符正斜杠（“/”）是不允许输入的；</p>
-<p>5）mask：同样，这个字段只对前面type字段设置成“M”之后才有效。它表示要匹配哪些位，它的长度要和magic字段魔数的长度一致。如果某一位为1，表示这一位必须要与magic对应的位匹配；如果对应的位为0，表示忽略对这一位的匹配，取什么值都可以。如果是0xff的话，即表示全部位都要匹配，默认情况下，如果不设置这个字段的话，表示要与magic全部匹配（即等效于所有都设置成0xff）。还有同样对于NUL来说，要使用转义（\x00），否则对这行字符串的解释将到NUL停止，后面的不再起作用；</p>
-<p>6）interpreter：表示要用哪个程序来启动这个类型的文件，一定要使用全路径名，不要使用相对路径名；</p>
-<p>7）flags：这个字段可选，主要用来控制interpreter打开文件的行为。比较常用的是‘P’（请注意，一定要大写），表示保留原始的argv[0]参数。这是什么意思呢？默认情况下，如果不设置这个标志的话，binfmt_misc会将传给interpreter的第一个参数，即argv[0]，修改成要被打开文件的全路径名。当设置了‘P’之后，binfmt_misc会保留原来的argv[0]，在原来的argv[0]和argv[1]之间插入一个参数，用来存放要被打开文件的全路径名。比如，如果想用程序/bin/foo来打开/usr/local/bin/blah这个文件，如果不设置‘P’的话，传给程序/bin/foo的参数列表argv[]是[“/usr/local/bin/blah”, “blah”]，而如果设置了‘P’之后，程序/bin/foo得到的参数列表是[“/bin/foo”, “/usr/local/bin/blah”, “blah”]。</p>
-<p>除了以上的规则之外，还有一些额外的限制条件：</p>
-<p>1）每一行匹配规则字符串的长度不能超过1920个字符；</p>
-<p>2）魔数（Magic Byte）必须在文件头128个字节内，也就是说offset+sizeof(magic)不能超过128；</p>
-<p>3）interpreter字段的长度不能超过127个字符。</p>
-<p>每次成功写入一行规则，都会在/proc/sys/fs/binfmt_misc/目录下，创建一个名字为输入的匹配规则字符串中”name”字段的文件。</p>
-<p>通过读取这个文件的内容，可以知道这条匹配规则当前的状态：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/binfmt_misc/&lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>而通过向这个文件中写入0或1，可以关闭或打开这条匹配规则，而写入-1表示彻底删除这条规则：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/fs/binfmt_misc/&lt;name&gt;    # Disable the match</span><br><span class="line">echo 1 &gt; /proc/sys/fs/binfmt_misc/&lt;name&gt;    # Enable the match</span><br><span class="line">echo -1 &gt; /proc/sys/fs/binfmt_misc/&lt;name&gt;   # Delete the match</span><br></pre></td></tr></table></figure>
-
-<p>不过前提是必须要切换到root用户才能有权限写入。</p>
-<p>在/proc/sys/fs/binfmt_misc/目录下，还缺省存在一个叫做status的文件，通过它可以查看和控制整个binfmt_misc的状态，而不光是单个匹配规则。</p>
-<p>可以查看当前binfmt_misc是否处于打开状态：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/fs/binfmt_misc/status</span><br></pre></td></tr></table></figure>
-
-<p>也可以通过向它写入1或0来打开或关闭binfmt_misc：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/fs/binfmt_misc/status    # Disable binfmt_misc</span><br><span class="line">echo 1 &gt; /proc/sys/fs/binfmt_misc/status    # Enable binfmt_misc</span><br></pre></td></tr></table></figure>
-
-<p>如果想删除当前binfmt_misc中的所有匹配规则，可以向其传入-1：</p>
-
+<p>意思是 GRUB 初始化页面的第一个内核将作为默认内核。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
       
 
       
@@ -263,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CPU架构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -319,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/08/01/MultiArch/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://fengzhongxiu.github.io/2021/08/09/centos7%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/03/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/10/docekr-ce%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          交叉编译环境
+          docker-ce安装
         
       </div>
     </a>
   
   
-    <a href="/2021/07/08/k8s%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">k8s杂症库</div>
+    <a href="/2021/08/06/%E9%B2%B2%E9%B9%8F%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">离网centos环境鲲鹏迁移工具的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -371,7 +339,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">MultiArch概念说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">不同架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiArch%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">MultiArch应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">3.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#binfmt-misc"><span class="toc-number">4.</span> <span class="toc-text">binfmt_misc</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.</span> <span class="toc-text">检查已安装的内核版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-CentOS-7-%E4%B8%AD%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8"><span class="toc-number">2.2.</span> <span class="toc-text">在 CentOS 7 中升级内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-GRUB-%E9%BB%98%E8%AE%A4%E7%9A%84%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">2.3.</span> <span class="toc-text">设置 GRUB 默认的内核版本</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -385,7 +353,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="MultiArch" data-title="MultiArch" data-url="https://fengzhongxiu.github.io/2021/08/01/MultiArch/"></div>
+	<div class="ds-thread" data-thread-key="centos7内核升级" data-title="centos7内核升级" data-url="https://fengzhongxiu.github.io/2021/08/09/centos7%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
